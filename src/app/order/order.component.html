@@ -1,0 +1,28 @@
+
+<div class="container">
+
+  <form [formGroup]="form" (ngSubmit) = "submit()">
+
+    <label formArrayName="orders" *ngFor="let order of ordersFormArray.controls; let i = index">
+      <span>
+        <input type="checkbox" [formControlName]="i"/>
+        {{menu[i].foodName}}
+        {{menu[i].price | currency}}
+        <span matTooltip="{{menu[i].description}}">
+          <button mat-icon-button [disabled]="true">
+            <mat-icon>help</mat-icon>
+          </button>
+        </span>
+      </span>
+    </label>
+
+    <button class="btn btn-lg btn-success">Order Now</button>
+    <br>
+    <div *ngIf="!form.valid" class="alert alert-warning">At least one item must be selected!</div>
+
+  </form>
+
+</div>
+
+
+

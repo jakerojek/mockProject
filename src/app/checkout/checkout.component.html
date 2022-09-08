@@ -1,0 +1,21 @@
+<table class="center">
+    <thead>
+      <tr>
+        <th>Item</th>&nbsp;&nbsp;
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of finalItems">
+        <td>{{ item.foodName }}</td>&nbsp;&nbsp;
+        <td>{{ item.price | currency }}</td>
+      </tr>
+    </tbody>
+</table>
+
+<button type="button" class="btn btn-lg btn-success center" (click)="payBill()">Checkout</button>
+
+<div *ngIf="paid" style="margin: 10px">
+    <div class="alert alert-success center">Thanks, please visit again!</div>
+</div>
+

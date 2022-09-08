@@ -1,0 +1,33 @@
+<br>
+<div class="center">
+    <h1> Welcome to Jake's Restaurant! </h1>
+</div>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <button type="button" class="btn btn-lg btn-info" (click)="orderBool()" [disabled]="orderPlaced" style="margin-right: 5px">Place Order</button> 
+            <button type="button" class="btn btn-lg btn-success" (click)="checkoutBool()" [disabled]="!orderPlaced" style="margin-left: 5px">Checkout</button>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="order" style="margin: 10px">
+    <app-order (orderEvent)="getList($event)"></app-order>
+</div>
+
+<div *ngIf="checkout" style="margin: 10px">
+    <app-checkout [bill]="finalOrder"></app-checkout>
+</div>
+
+<span *ngIf="orderPlaced && !checkout" style="margin: 10px">
+    <div class="alert alert-success center">Order is placed successfully.</div>
+</span>
+
+
+
+
+
+
+
+
